@@ -478,7 +478,8 @@
                     <option value="Rishikesh ">Rishikesh</option>
                     <option value="Roorkee ">Roorkee</option>
                 </select>
-                <button type="submit " class="btn ">Submit to WhatsApp</button>
+                <!-- <button type="submit " class="btn ">Submit to WhatsApp</button> -->
+                <a href="https://wa.me/7505974697 " class="btn ">submit now</a>
             </form>
         </div>
     </section>
@@ -488,31 +489,38 @@
     </footer>
 
     <script>
-        // Minimal JS for animations on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        });
+document.getElementById("bookingForm ").addEventListener("submit ", function(e) {
+    e.preventDefault();
 
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.animationPlayState = 'paused';
-            observer.observe(section);
-        });
+    const name = document.getElementById("name ").value.trim();
+    const mobile = document.getElementById("mobile ").value.trim();
+    const from = document.getElementById("from ").value;
+    const to = document.getElementById("to ").value;
 
-        // WhatsApp form submission
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const mobile = document.getElementById('mobile').value;
-            const from = document.getElementById('from').value;
-            const to = document.getElementById('to').value;
-            const message = `Namaste Sanjeev ji,%0A%0ATaxi Booking Inquiry:%0AName: ${name}%0AMobile: ${mobile}%0AFrom: ${from}%0ATo: ${to}%0A%0APlease share availability & charges.`;
-            window.open(`https://wa.me/7505974697?text=${message}`, '_blank');
-        });
-    </script>
+    if (!/^[0-9]{10}$/.test(mobile)) {
+        alert("Please enter valid 10 digit mobile number ");
+        return;
+    }
+
+    const message =
+        `Namaste Sanjeev ji,%0A%0A` +
+        `Taxi Booking Inquiry 🚕%0A` +
+        `Name: ${name}%0A` +
+        `Mobile: ${mobile}%0A` +
+        `From: ${from}%0A` +
+        `To: ${to}%0A%0A` +
+        `Please share availability & charges.`;
+
+    window.open(
+        "https://wa.me/7505974697?text=" + message,
+        " _blank "
+    );
+});
+</script>
+
+
+
+
 </body>
 
 </html>
