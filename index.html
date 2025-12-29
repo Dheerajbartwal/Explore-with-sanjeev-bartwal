@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjeev Bartwal Taxi Service - Daily Intercity Cab Service from Tehri Garhwal</title>
+    <meta name="description" content="Safe, reliable, and on-time daily taxi service from Tehri Garhwal to Delhi, Dehradun, Haridwar, Rishikesh, and Roorkee. 6+ years experience with Sanjeev Bartwal. Book now via WhatsApp.">
+    <style>
+        /* Reset and Base Styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* Navigation */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            padding: 1rem;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav h1 {
+            font-size: 1.5rem;
+            color: #ffd700;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        /* Hero Section */
+        
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            /* Mountain road */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background-color: #ffd700;
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e6c200;
+            transform: scale(1.05);
+        }
+        /* Sections */
+        
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #000;
+        }
+        /* About & Services */
+        
+        .about-services {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .about,
+        .services {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .about:hover,
+        .services:hover {
+            transform: translateY(-5px);
+        }
+        
+        .about h3,
+        .services h3 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        /* Routes */
+        
+        .routes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .route-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .route-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .route-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .route-card .content {
+            padding: 1rem;
+        }
+        
+        .route-card h3 {
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+        /* Vehicle & Booking */
+        
+        .vehicle-booking {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .vehicle {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .vehicle .images {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .vehicle img {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 1rem;
+            display: block;
+            border-radius: 10px;
+        }
+        
+        .booking-form {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .booking-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .booking-form input,
+        .booking-form select {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        /* Footer */
+        
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+        /* Animations */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul li {
+                margin-left: 0;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                padding: 2rem 1rem;
+            }
+            .routes {
+                grid-template-columns: 1fr;
+            }
+            .vehicle .images {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <h1>Sanjeev Bartwal Taxi Service</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About & Services</a></li>
+                <li><a href="#routes">Routes</a></li>
+                <li><a href="#vehicle">Vehicle & Booking</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Daily Taxi Service from Tehri Garhwal</h1>
+            <p>Safe, Reliable & On-Time Intercity Cab Service – 6+ Years Experience</p>
+            <div class="cta-buttons">
+                <a href="tel:7505974697" class="btn">Call Now</a>
+                <a href="https://wa.me/7505974697" class="btn">Book on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Services Page -->
+    <section id="about" class="section about-services">
+        <h2>About & Services</h2>
+        <div class="about" style="animation: slideInLeft 1s ease-out;">
+            <h3>About Sanjeev Bartwal</h3>
+            <p>Sanjeev Bartwal is a licensed commercial driver with over 6 years of professional driving experience. He is known for being polite, punctual, and committed to safe driving practices, ensuring a comfortable and trustworthy journey for all passengers.</p>
+        </div>
+        <div class="services" style="animation: slideInRight 1s ease-out;">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Daily route service to major destinations</li>
+                <li>Outstation travel arrangements</li>
+                <li>One-way and return trips</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Routes & Locations Page -->
+    <section id="routes" class="section routes">
+        <h2>Routes & Locations</h2>
+        <div class="route-card" style="animation: fadeInUp 1s ease-out;">
+            <img src="tehri-compressed.jpg" Tehri Garhwal ">
+            <div class="content ">
+                <h3>Tehri Garhwal</h3>
+                <p>Scenic mountain town, starting point for daily services.</p>
+            </div>
+        </div>
+        <div class="route-card " style="animation: fadeInUp 1.2s ease-out; ">
+            <img src="delhi.webp " alt="Delhi ">
+            <div class="content ">
+                <h3>Delhi</h3>
+                <p>Capital city, connected via highways for efficient travel.</p>
+            </div>
+        </div>
+        <div class="route-card " style="animation: fadeInUp 1.4s ease-out; ">
+            <img src="dehraudn.webp " alt="Dehradun ">
+            <div class="content ">
+                <h3>Dehradun</h3>
+                <p>Gateway to Uttarakhand, popular for its serene landscapes.</p>
+            </div>
+        </div>
+        <div class="route-card " style="animation: fadeInUp 1.6s ease-out; ">
+            <img src="haridwar.webp " alt="Haridwar ">
+            <div class="content ">
+                <h3>Haridwar</h3>
+                <p>Sacred city along the Ganges, known for its bridges and temples.</p>
+            </div>
+        </div>
+        <div class="route-card " style="animation: fadeInUp 1.8s ease-out; ">
+            <img src="rishkesh.jfif " alt="Rishikesh ">
+            <div class="content ">
+                <h3>Rishikesh</h3>
+                <p>Adventure capital, famous for yoga and river activities.</p>
+            </div>
+        </div>
+        <div class="route-card " style="animation: fadeInUp 2s ease-out; ">
+            <img src="rorrkee.webp " alt="Roorkee ">
+            <div class="content ">
+                <h3>Roorkee</h3>
+                <p>Educational hub with historical significance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle & Booking Page -->
+    <section id="vehicle " class="section vehicle-booking ">
+        <h2>Vehicle & Booking</h2>
+        <div class="vehicle " style="animation: slideInLeft 1s ease-out; ">
+            <h3>Black Swift Dzire</h3>
+            <p>Vehicle Number: UK09 PA 9897</p>
+            <p>Yellow plate (commercial), AC, clean, and comfortable seating for a premium travel experience.</p>
+            <div class="images ">
+                <img src="Maruti-suzuki-swift-2024-Interior.webp " alt="Black Swift Dzire 1 ">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80 " alt="Black Swift Dzire 2 ">
+                <img src="suzuki-Swift-lhd-color-MineralGrayMetallic.jpg " alt="Black Swift Dzire 3 ">
+            </div>
+        </div>
+        <div class="booking-form " style="animation: slideInRight 1s ease-out; ">
+            <h3>Book Your Ride</h3>
+            <form id="bookingForm ">
+                <input type="text " id="name " placeholder="Name " required>
+                <input type="tel " id="mobile " placeholder="Mobile Number " required>
+                <select id="from " required>
+                    <option value=" ">From Location</option>
+                    <option value="Tehri Garhwal ">Tehri Garhwal</option>
+                    <option value="Delhi ">Delhi</option>
+                    <option value="Dehradun ">Dehradun</option>
+                    <option value="Haridwar ">Haridwar</option>
+                    <option value="Rishikesh ">Rishikesh</option>
+                    <option value="Roorkee ">Roorkee</option>
+                </select>
+                <select id="to " required>
+                    <option value=" ">To Location</option>
+                    <option value="Tehri Garhwal ">Tehri Garhwal</option>
+                    <option value="Delhi ">Delhi</option>
+                    <option value="Dehradun ">Dehradun</option>
+                    <option value="Haridwar ">Haridwar</option>
+                    <option value="Rishikesh ">Rishikesh</option>
+                    <option value="Roorkee ">Roorkee</option>
+                </select>
+                <button type="submit " class="btn ">Submit to WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Sanjeev Bartwal Taxi Service. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Minimal JS for animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.animationPlayState = 'paused';
+            observer.observe(section);
+        });
+
+        // WhatsApp form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const mobile = document.getElementById('mobile').value;
+            const from = document.getElementById('from').value;
+            const to = document.getElementById('to').value;
+            const message = `Namaste Sanjeev ji,%0A%0ATaxi Booking Inquiry:%0AName: ${name}%0AMobile: ${mobile}%0AFrom: ${from}%0ATo: ${to}%0A%0APlease share availability & charges.`;
+            window.open(`https://wa.me/7505974697?text=${message}`, '_blank');
+        });
+    </script>
+</body>
+
+</html>
